@@ -46,6 +46,7 @@ class Dog{
         return this.name;
     }
 }
+//2-12方法引用 重点查看
 public class MethodRefrenceDemo {
 
     public static void main(String[] args) {
@@ -65,6 +66,7 @@ public class MethodRefrenceDemo {
         //Function<Integer, Integer> function = dog::ageNow;
         //UnaryOperator<Integer> function = dog::ageNow;
         IntUnaryOperator function = dog::ageNow;
+        //java中变量都是传递值，而非引用,lambda表达式传递的是值
         System.out.println("还剩下" + function.applyAsInt(5) + "岁数");
         //Consumer<Dog> consumer2 = Dog::ageNow;
 
@@ -76,7 +78,7 @@ public class MethodRefrenceDemo {
         Supplier<Dog> supplier = Dog::new;
         System.out.println("创建了新对象" + supplier.get());
 
-        //带参数的构造函数的方法引用--带参数的话，就有输入和输出，就是function
+        //带参数的构造函数的方法引用--带参数的话，就有输入和输出，就是function，jdk自己会寻找输入是String，输出是Dog的构造函数
         Function<String, Dog> function1 = Dog::new;
         System.out.println("创建了新对象：" + function1.apply("牛肉"));
     }
