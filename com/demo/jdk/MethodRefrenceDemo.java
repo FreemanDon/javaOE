@@ -54,7 +54,7 @@ public class MethodRefrenceDemo {
         dog.ageNow(1);
         //函数的调用只有一个，而且函数的参数和调用的函数是同一个时，可缩写成方法引用
         //Consumer<String> consumer = s -> System.out.println(s);
-        //方法的引用
+        //方法的引用  ::
         Consumer<String> consumer =  System.out::println;
         consumer.accept("接受的数据");
 
